@@ -25,20 +25,3 @@ const initRedisWithMockData = async () => {
 }
 
 module.exports = { initRedisWithMockData }
-
-// let promises = [];
-//     let id;
-//     let multi = client.multi();
-//     mockOffersData.forEach(async (mockOffer) => {
-//       id = String("offer_" + mockOffer.id);
-//       promises.push(client.HSET(id, 
-//       ["id", id, "name", mockOffer.name, "currentCount", mockOffer.currentCount, "limit", mockOffer.limit]));
-//     })
-
-//     // mockOffersData.forEach(async (mockOffer) => {
-//     //     id = String("offer_" + mockOffer.id);
-//     //     multi.HSET(id, 
-//     //     ["id", id, "name", mockOffer.name, "currentCount", mockOffer.currentCount, "limit", mockOffer.limit]);
-//     //   })
-
-//     await multi.exec();
