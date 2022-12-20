@@ -1,13 +1,13 @@
 const express=require('express');
 const router = express.Router({mergeParams: true});
-const OffersService = require('../services/OffersService.js');
+const offersService = require('../services/offersService.js');
 
 router.get("/list",(req,res)=>{
-    OffersService.getAllOffers(res);
+    offersService.getAllOffers(res);
 })
 
 router.get('/purchaseOffer', (req, res) => {
-    OffersService.purchaseOffer(req, res);
+    offersService.purchaseOffer(req, res);
 })
 
 module.exports=router;
