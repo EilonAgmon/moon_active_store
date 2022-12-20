@@ -1,5 +1,5 @@
 import axios from 'axios';
-const FETCH_OFFERS_API_URL = "/api/fetchOffers"
+const FETCH_OFFERS_API_URL = "/offers/list"
 
 const fetchOffers = async () => {
   try {

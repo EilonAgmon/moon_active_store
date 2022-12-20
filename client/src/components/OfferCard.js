@@ -10,7 +10,7 @@ const OfferCard = ({offer, onOfferClickCallback}) => {
   };
 
    return (
-    <Card sx={{ width: 500 }} onClick = {() => onOfferCardClicked(offer)}>
+    <Card onClick = {() => onOfferCardClicked(offer)}>
       <CardContent>
           <Typography variant="h2">
             {offer.name}
