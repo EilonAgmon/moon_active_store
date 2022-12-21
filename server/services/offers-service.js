@@ -32,7 +32,7 @@ const purchaseOffer = async (req, res) => {
     if (!offerId) {
       throw "No offer ID provided";
     }
-    const id = "offer_" + offerId;
+    const id = constants.OFFER_KEY_PREFIX + offerId;
     const offer = await client.HMGET(id, ["currentCount", "limit", "name"]);
 
     if (offer[0] == null) {

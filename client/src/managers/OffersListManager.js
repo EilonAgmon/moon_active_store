@@ -2,12 +2,32 @@ import React, { useState, useEffect, useRef } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import OffersList from '../components/OffersList';
-import fetchOffers from '../data-fetchers/OffersDataFetcher.js';
-import purchaseOffer from '../actions/OffersActions.js';
+import fetchOffers from '../data-fetchers/offers-data-fetcher.js';
+import purchaseOffer from '../actions/purchase-offer-action.js';
 
 const OffersListManager = () => {
     const [offers, setOffers] = useState([]);
     const dataFetchedRef = useRef(false); // Avoid React 18 Use Effect Getting Called Twice
+
+    useEffect(() => {
+        if (dataFetchedRef.current) return;
+        dataFetchedRef.current = true;
+        fetchAllOffers();
+    });
+
+    const showToast = (success, message) => {
+        if (success) {
+            toast.success(message, {
+                position: toast.POSITION.TOP_CENTER,
+                pauseOnFocusLoss: false
+            });
+        } else {
+            toast.error(message, {
+                position: toast.POSITION.TOP_CENTER,
+                pauseOnFocusLoss: false
+            });
+        }
+    }
 
     const fetchAllOffers = async () => {
         const offersData = await fetchOffers();
@@ -15,33 +35,23 @@ const OffersListManager = () => {
             setOffers(offersData.offers);
         } else {
             setOffers([]);
-            toast.error(offersData.message, {
-                position: toast.POSITION.TOP_CENTER,
-                pauseOnFocusLoss: false
-            });
+            showToast(false, offersData.message);
         }
     };
 
-    useEffect(() => {
-        if (dataFetchedRef.current) return;
-        dataFetchedRef.current = true;
-        fetchAllOffers();
-    }, []);
-      
     const onOfferClicked = async (offer) => {
+        if(offer.currentCount >= offer.limit) {
+            // No need to call BE
+            showToast(false, "This offer has reached its cap");
+            return;
+        }
         const offersData = await purchaseOffer(offer.id);
         if (offersData.success) {
             offer.currentCount = offersData.count;
             setOffers([...offers]);
-            toast.success("Purchase of " + offer.name + " was successful", {
-                position: toast.POSITION.TOP_CENTER,
-                pauseOnFocusLoss: false
-            });
+            showToast(true, "Purchase of " + offer.name + " was successful");
         } else {
-            toast.error(offersData.message, {
-                position: toast.POSITION.TOP_CENTER,
-                pauseOnFocusLoss: false
-            });
+            showToast(false, offersData.message);
         }
     };
 

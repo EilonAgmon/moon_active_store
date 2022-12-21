@@ -1,12 +1,14 @@
 import React from "react";
+import OffersListHeader from '../components/OffersListHeader';
 import OffersListManager from './OffersListManager';
+import "./OffersStoreManager.css";
 
 const OffersStoreManager = () => {
     
     return (
-        <div>
-            Here will Be a header
-             <OffersListManager />
+        <div className="store-container">
+           <OffersListHeader />
+           <OffersListManager />
         </div>
     )
 }

@@ -15,12 +15,13 @@ const initRedisWithMockData = async () => {
         ["id", offerId, "name", mockOffer.name, "currentCount", mockOffer.currentCount, "limit", mockOffer.limit]);
       });
   
-      const allKeys = allRedisKeys.join(' '); 
-      console.log("All the values " + allKeys);
-  
-      // Set the key for all existing keys for quick fetching of keys
-      multi.set(constants.ALL_KEYS_KEY, allKeys);
-  
+      if (allRedisKeys != []) {
+        const allKeys = allRedisKeys.join(' '); 
+        
+        // Set the key for all existing keys for quick fetching of keys
+        multi.set(constants.ALL_KEYS_KEY, allKeys);
+      }
+      
       await multi.exec();
 }
 
