@@ -1,0 +1,10 @@
+.store-container {
+  background-color: #D5DBDB;
+  width: 60%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+}
