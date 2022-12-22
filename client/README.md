@@ -5,7 +5,13 @@
 
 ## TAB 1
 
-In the project directory, you can run:
+### `redis-server`
+
+If redis is not installed run
+
+### `brew install redis`
+
+or navigate to https://redis.io/docs/getting-started/installation/install-redis-on-mac-os/
 
 ### `npm start`
 
