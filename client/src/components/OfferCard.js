@@ -14,11 +14,11 @@ const OfferCard = ({offer, onOfferClickCallback}) => {
     <Card className={`offer-card ${offer.currentCount >= offer.limit ? "disabled" : "enabled"}`} 
       onClick = {() => onOfferCardClicked(offer)}>
       <CardContent>
-          <Typography variant="h2">
+          <Typography variant="h3">
             {offer.name}
           </Typography>
           <Typography variant="h4">
-            {"limit " + offer.currentCount + "/" + offer.limit}
+            {"limit " + offer.currentCount + " / " + offer.limit}
           </Typography>
         </CardContent>
        </Card>

@@ -7,7 +7,7 @@ import purchaseOffer from '../actions/purchase-offer-action.js';
 
 const OffersListManager = () => {
     const [offers, setOffers] = useState([]);
-    const dataFetchedRef = useRef(false); // Avoid React 18 Use Effect Getting Called Twice
+    const dataFetchedRef = useRef(false); // Avoid React 18 Use Effect Getting Called Twice on first time
 
     useEffect(() => {
         if (dataFetchedRef.current) return;
