@@ -6,17 +6,17 @@
 ## TAB 1 - Redis Server
 
 Run - 
-### `redis-server`
-If redis is not installed run
-### `brew install redis`
-or navigate to https://redis.io/docs/getting-started/installation/install-redis-on-mac-os/
+### `npm install`
+and then 
+### `npm start`
 
 ## TAB 2 - Express Server Back End
 
 Run - 
-### `npm install`
-and then 
-### `npm start`
+### `redis-server`
+If redis is not installed run
+### `brew install redis`
+or navigate to https://redis.io/docs/getting-started/installation/install-redis-on-mac-os/
 
 ## TAB 2 - React Client
 
