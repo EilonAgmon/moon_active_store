@@ -1,7 +1,7 @@
 # How to install and run the moon active shop
 
 1. Clone this repo or extract the .zip file into a folder called "moon_active_shop"
-2. Open 3 tabs on that folder and do the following
+2. In the terminal, open 3 tabs with that folder and do the following:
 
 ## TAB 1 - Redis Server
 
