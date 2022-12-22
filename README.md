@@ -3,22 +3,22 @@
 1. Clone this repo or extract the .zip file and get a folder called "moon_active_shop"
 2. In the terminal, open 3 tabs with that folder and do the following:
 
+
 ## TAB 1 - Redis Server
 
 Run - 
 ### `npm install`
 and then 
-### `npm start`
+### `redis-server`
+
 
 ## TAB 2 - Express Server Back End
 
 Run - 
-### `redis-server`
-If redis is not installed run
-### `brew install redis`
-or navigate to https://redis.io/docs/getting-started/installation/install-redis-on-mac-os/
+### `npm start`
 
-## TAB 2 - React Client
+
+## TAB 3 - React Client
 
 Navigate to 
 ### `moon_active_shop/client`
